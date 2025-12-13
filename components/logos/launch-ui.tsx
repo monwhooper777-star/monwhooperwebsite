@@ -1,34 +1,16 @@
+import Image from "next/image"
 import * as React from "react"
 
-const LaunchUI = (props: React.SVGProps<SVGSVGElement>) => {
-  const size =
-    typeof props.width === "number"
-      ? props.width
-      : typeof props.height === "number"
-        ? props.height
-        : 24
-
+const LaunchUI = ({ className }: { className?: string }) => {
   return (
-    <span
-      className={props.className}
-      style={{
-        display: "inline-block",
-        width: size,
-        height: size,
-        lineHeight: 0,
-        flex: "0 0 auto",
-      }}
-      aria-label="Monwhooper logo"
-      role="img"
-    >
-      <img
-        src="/monwhooperlogo.png"
-        alt="Monwhooper logo"
-        width={Number(size)}
-        height={Number(size)}
-        style={{ width: "100%", height: "100%", display: "block" }}
-      />
-    </span>
+    <Image
+      src="/monwhooperlogo.png"
+      alt="Monwhooper logo"
+      width={24}
+      height={24}
+      className={className}
+      priority
+    />
   )
 }
 
