@@ -66,7 +66,8 @@ export default function Navbar({
           <NavbarLeft>
             <a href={homeUrl} className="flex items-center gap-2 text-xl font-bold">
               {logo}
-              <span>{name}</span>
+              {/* DX Gotha font for MWSD */}
+              <span className='font-["DX Gotha"] leading-none'>{name}</span>
             </a>
 
             {showNavigation && (customNavigation || <Navigation />)}
@@ -101,7 +102,8 @@ export default function Navbar({
                 <nav className="grid gap-6 text-lg font-medium">
                   <a href={homeUrl} className="flex items-center gap-2 text-xl font-bold">
                     {logo}
-                    <span>{name}</span>
+                    {/* DX Gotha font for MWSD (mobile) */}
+                    <span className='font-["DX Gotha"] leading-none'>{name}</span>
                   </a>
 
                   {mobileLinks.map((link, index) => (
