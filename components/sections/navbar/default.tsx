@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { dxGotha } from "@/lib/fonts"
 
-import BrandLogo from "../../logos/brand-logo"
+import BrandLogo from "../logos/brand-logo"
 import { Button, buttonVariants } from "../../ui/button"
 import {
   Navbar as NavbarComponent,
