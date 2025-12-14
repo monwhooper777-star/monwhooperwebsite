@@ -44,7 +44,7 @@ export default function Hero({
   badge = (
     <Badge variant="outline" className="animate-appear">
       <span className="text-muted-foreground">
-        Free Water Trials in Los Angeles Local Area!
+        Free Water Trials
       </span>
       <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
         Get started
