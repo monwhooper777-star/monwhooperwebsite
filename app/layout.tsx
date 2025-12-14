@@ -1,39 +1,45 @@
-import "@/app/globals.css";
+import "@/app/globals.css"
 
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 
-import { ThemeProvider } from "@/components/contexts/theme-provider";
-import { inter } from "@/lib/fonts";
-
-import { siteConfig } from "../config/site";
+import { ThemeProvider } from "@/components/contexts/theme-provider"
+import { inter } from "@/lib/fonts"
+import { siteConfig } from "@/config/site"
 
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  metadataBase: new URL(siteConfig.getStartedUrl),
+
+  // MUST be absolute (this is what was breaking your Vercel build)
+  metadataBase: new URL(siteConfig.url),
+
   description: siteConfig.description,
   keywords: [
-    "Landing page template",
+    "MWSD",
+    "Monwhooper",
+    "Landing page",
     "Components",
-    "Shadcn",
+    "shadcn/ui",
     "Next.js",
     "React",
     "Tailwind CSS",
     "Radix UI",
   ],
+
   authors: [
     {
-      name: "Mikolaj Dobrucki",
-      url: "https://mikolajdobrucki.com",
+      name: "MWSD",
+      url: siteConfig.url,
     },
   ],
-  creator: "mikolajdobrucki",
+  creator: "MWSD",
+
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.getStartedUrl,
+    url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
@@ -46,23 +52,25 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@mikolajdobrucki",
+    creator: "@MonWhooperA1776",
   },
+
   icons: {
     icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" style={{ colorScheme: "dark" }} className="dark">
@@ -70,5 +78,5 @@ export default function RootLayout({
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
