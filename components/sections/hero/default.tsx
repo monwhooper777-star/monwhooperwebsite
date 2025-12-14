@@ -32,7 +32,7 @@ interface HeroProps {
 export default function Hero({
   title = "Monwhooper1776 - Stay Dangerous",
   description =
-    "How WE can STAY DANGEROUS in life. DANGEROUS ALONE DEADLIEST WHEN TOGETHER",
+    "Monwhooper1776 - Stay Dangerous is a personal brand created by Kenneth Castenada, the maxim "Stay Dangerous" encapsulates the main philosophy of the brand.",
   mockup = (
     <img
       src="/healingweb.png"
