@@ -45,7 +45,7 @@ export default function Hero({
     <Badge variant="outline" className="animate-appear">
       <span className="text-muted-foreground">Free Water Trials</span>
       <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
-        Get started
+        Locals Only
         <ArrowRightIcon className="size-3" />
       </a>
     </Badge>
