@@ -7,7 +7,7 @@
 
 /* --- Custom Font: DX Gotha --- */
 @font-face {
-  font-family: "DXGotha";
+  font-family: "DX Gotha";
   src: url("/dx-gotha-personal.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
@@ -227,6 +227,6 @@
 
 /* Utility class to use DX Gotha on specific elements (e.g., MWSD text) */
 .font-dxgotha {
-  font-family: "DXGotha", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Apple Color Emoji",
-    "Segoe UI Emoji";
+  font-family: "DX Gotha", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans",
+    "Apple Color Emoji", "Segoe UI Emoji";
 }
