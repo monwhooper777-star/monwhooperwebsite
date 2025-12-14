@@ -1,7 +1,7 @@
-import { cva, VariantProps } from "class-variance-authority";
-import React from "react";
+import { cva, type VariantProps } from "class-variance-authority"
+import React from "react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 const glowVariants = cva("absolute w-full", {
   variants: {
@@ -16,17 +16,37 @@ const glowVariants = cva("absolute w-full", {
   defaultVariants: {
     variant: "top",
   },
-});
+})
 
-function Glow({
+type GlowProps = React.ComponentProps<"div"> &
+  VariantProps<typeof glowVariants> & {
+    /**
+     * Optional per-instance overrides for the theme "brand" colors used by bg-radial utilities.
+     * Use the same format as your CSS variables (commonly: "R G B").
+     */
+    brand?: string
+    brandForeground?: string
+  }
+
+export default function Glow({
   className,
   variant,
+  brand,
+  brandForeground,
+  style,
   ...props
-}: React.ComponentProps<"div"> & VariantProps<typeof glowVariants>) {
+}: GlowProps) {
+  const mergedStyle = {
+    ...(style ?? {}),
+    ...(brand ? { ["--brand" as any]: brand } : {}),
+    ...(brandForeground ? { ["--brand-foreground" as any]: brandForeground } : {}),
+  } as React.CSSProperties
+
   return (
     <div
       data-slot="glow"
       className={cn(glowVariants({ variant }), className)}
+      style={mergedStyle}
       {...props}
     >
       <div
@@ -42,7 +62,5 @@ function Glow({
         )}
       />
     </div>
-  );
+  )
 }
-
-export default Glow;
