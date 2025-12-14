@@ -70,15 +70,25 @@ export default function Hero({
   return (
     <Section
       className={cn(
-        "fade-bottom overflow-hidden pb-0 sm:pb-0 md:pb-0",
+        "relative overflow-hidden pb-0 sm:pb-0 md:pb-0",
         className,
       )}
     >
-      <div className="max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
+      {/* 🔴 RED BRAND GRADIENT BACKDROP */}
+      <div
+        aria-hidden
+        className="
+          pointer-events-none
+          absolute inset-0
+          bg-[radial-gradient(60%_45%_at_50%_75%,rgba(120,20,30,0.45),rgba(20,0,0,0.85)_70%,rgba(0,0,0,1)_100%)]
+        "
+      />
+
+      <div className="relative z-10 max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {badge !== false && badge}
 
-          {/* DX Gotha + subtle silver gradient */}
+          {/* DX Gotha + silver gradient */}
           <h1
             className={cn(
               dxGotha.className,
