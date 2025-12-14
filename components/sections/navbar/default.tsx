@@ -52,7 +52,7 @@ export default function Navbar({
   ],
   actions = [
     {
-      text: "Get Started",
+      text: "Water Trials", // ✅ CHANGED FROM "Get Started"
       href: siteConfig.getStartedUrl || "/",
       isButton: true,
       variant: "default",
