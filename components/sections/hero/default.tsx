@@ -4,6 +4,7 @@ import { ReactNode } from "react"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
+import { dxGotha } from "@/lib/fonts"
 
 import Github from "../../logos/github"
 import { Badge } from "../../ui/badge"
@@ -67,17 +68,18 @@ export default function Hero({
   className,
 }: HeroProps) {
   return (
-    <Section
-      className={cn(
-        "fade-bottom overflow-hidden pb-0 sm:pb-0 md:pb-0",
-        className,
-      )}
-    >
+    <Section className={cn("fade-bottom overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}>
       <div className="max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {badge !== false && badge}
 
-          <h1 className="font-dx-gotha animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight">
+          {/* Force DX Gotha using next/font's className (no Tailwind config required) */}
+          <h1
+            className={cn(
+              dxGotha.className,
+              "animate-appear from-foreground to-foreground dark:to-muted-foreground relative z-10 inline-block bg-linear-to-r bg-clip-text text-4xl leading-tight font-semibold text-balance text-transparent drop-shadow-2xl sm:text-6xl sm:leading-tight md:text-8xl md:leading-tight",
+            )}
+          >
             {title}
           </h1>
 
@@ -88,12 +90,7 @@ export default function Hero({
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button, index) => (
-                <Button
-                  key={index}
-                  variant={button.variant || "default"}
-                  size="lg"
-                  asChild
-                >
+                <Button key={index} variant={button.variant || "default"} size="lg" asChild>
                   <a href={button.href}>
                     {button.icon}
                     {button.text}
@@ -106,21 +103,12 @@ export default function Hero({
 
           {mockup !== false && (
             <div className="relative w-full pt-12">
-              <MockupFrame
-                className="animate-appear opacity-0 delay-700"
-                size="small"
-              >
-                <Mockup
-                  type="responsive"
-                  className="bg-background/90 w-full rounded-xl border-0"
-                >
+              <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
+                <Mockup type="responsive" className="bg-background/90 w-full rounded-xl border-0">
                   {mockup}
                 </Mockup>
               </MockupFrame>
-              <Glow
-                variant="top"
-                className="animate-appear-zoom opacity-0 delay-1000"
-              />
+              <Glow variant="top" className="animate-appear-zoom opacity-0 delay-1000" />
             </div>
           )}
         </div>
