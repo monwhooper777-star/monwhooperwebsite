@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { dxGotha } from "@/lib/fonts"
 
-import LaunchUI from "../../logos/launch-ui"
+import BrandLogo from "../../logos/brand-logo"
 import { Button, buttonVariants } from "../../ui/button"
 import {
   Navbar as NavbarComponent,
@@ -42,7 +42,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({
-  logo = <LaunchUI />,
+  logo = <BrandLogo />,
   name = "MWSD",
   homeUrl = "/",
   mobileLinks = [
@@ -52,7 +52,7 @@ export default function Navbar({
   ],
   actions = [
     {
-      text: "Water Trials", // ✅ CHANGED FROM "Get Started"
+      text: "Water Trials",
       href: siteConfig.getStartedUrl || "/",
       isButton: true,
       variant: "default",
@@ -72,7 +72,6 @@ export default function Navbar({
             <a href={homeUrl} className="flex items-center gap-2">
               {logo}
 
-              {/* MWSD — force DX Gotha, no fallback */}
               <span
                 className={cn(
                   dxGotha.className,
@@ -119,7 +118,6 @@ export default function Navbar({
                   <a href={homeUrl} className="flex items-center gap-2">
                     {logo}
 
-                    {/* MWSD mobile — DX Gotha */}
                     <span
                       className={cn(
                         dxGotha.className,
