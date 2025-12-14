@@ -43,9 +43,7 @@ export default function Hero({
   ),
   badge = (
     <Badge variant="outline" className="animate-appear">
-      <span className="text-muted-foreground">
-        Free Water Trials
-      </span>
+      <span className="text-muted-foreground">Free Water Trials</span>
       <a href={siteConfig.getStartedUrl} className="flex items-center gap-1">
         Get started
         <ArrowRightIcon className="size-3" />
@@ -68,12 +66,7 @@ export default function Hero({
   className,
 }: HeroProps) {
   return (
-    <Section
-      className={cn(
-        "relative overflow-hidden pb-0 sm:pb-0 md:pb-0",
-        className,
-      )}
-    >
+    <Section className={cn("relative overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}>
       {/* 🔴 RED BRAND GRADIENT BACKDROP */}
       <div
         aria-hidden
@@ -109,12 +102,7 @@ export default function Hero({
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button, index) => (
-                <Button
-                  key={index}
-                  variant={button.variant || "default"}
-                  size="lg"
-                  asChild
-                >
+                <Button key={index} variant={button.variant || "default"} size="lg" asChild>
                   <a href={button.href}>
                     {button.icon}
                     {button.text}
@@ -127,20 +115,18 @@ export default function Hero({
 
           {mockup !== false && (
             <div className="relative w-full pt-12">
-              <MockupFrame
-                className="animate-appear opacity-0 delay-700"
-                size="small"
-              >
-                <Mockup
-                  type="responsive"
-                  className="bg-background/90 w-full rounded-xl border-0"
-                >
+              <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
+                <Mockup type="responsive" className="bg-background/90 w-full rounded-xl border-0">
                   {mockup}
                 </Mockup>
               </MockupFrame>
+
+              {/* ✅ FIX: recolor Glow to deep red + push behind so it doesn't overwrite your gradient */}
               <Glow
                 variant="top"
-                className="animate-appear-zoom opacity-0 delay-1000"
+                brand="120 20 30"
+                brandForeground="255 255 255"
+                className="animate-appear-zoom opacity-0 delay-1000 -z-10 opacity-40"
               />
             </div>
           )}
