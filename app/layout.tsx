@@ -3,7 +3,7 @@ import "@/app/globals.css"
 import type { Metadata } from "next"
 
 import { ThemeProvider } from "@/components/contexts/theme-provider"
-import { inter } from "@/lib/fonts"
+import { dxGotha, inter } from "@/lib/fonts"
 import { siteConfig } from "@/config/site"
 
 export const metadata: Metadata = {
@@ -73,7 +73,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" style={{ colorScheme: "dark" }} className="dark">
+    <html
+      lang="en"
+      style={{ colorScheme: "dark" }}
+      className={`dark ${dxGotha.variable}`}
+    >
       <body className={`${inter.className} bg-background antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
