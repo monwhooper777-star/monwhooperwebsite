@@ -46,7 +46,7 @@ export default function Navbar({
     { text: "Documentation", href: "/" },
   ],
   actions = [
-    { text: "Sign in", href: "/", isButton: false },
+    // Removed "Sign in" action
     {
       text: "Get Started",
       href: siteConfig.getStartedUrl || "/",
