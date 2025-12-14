@@ -32,7 +32,7 @@ interface HeroProps {
 
 export default function Hero({
   title = "Monwhooper1776 - Stay Dangerous",
-  description = "Professionally designed blocks and templates built with React, Shadcn/ui and Tailwind that will help your product stand out.",
+  description = "How WE can STAY DANGEROUS in life. DANGEROUS ALONE DEADLIEST WHEN TOGETHER",
   mockup = (
     <Screenshot
       srcLight="/dashboard-light.png"
