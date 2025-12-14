@@ -32,13 +32,12 @@ interface HeroProps {
 
 export default function Hero({
   title = "Monwhooper1776 - Stay Dangerous",
-  description =
-    "Official Website for Monwhooper",
+  description = "Official Website for Monwhooper",
   mockup = (
     <img
       src="/healingweb.png"
       alt="Healing Web diagram"
-      className="w-full h-auto object-contain"
+      className="h-auto w-full object-contain"
     />
   ),
   badge = (
@@ -67,35 +66,39 @@ export default function Hero({
 }: HeroProps) {
   return (
     <Section className={cn("relative overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}>
-      {/* 🔴 RED BRAND GRADIENT BACKDROP */}
+      {/* Theme-aware backdrop:
+          - Light: softer red haze on a light background
+          - Dark: deeper red glow into black */}
       <div
         aria-hidden
-        className="
-          pointer-events-none
-          absolute inset-0
-          bg-[radial-gradient(60%_45%_at_50%_75%,rgba(120,20,30,0.45),rgba(20,0,0,0.85)_70%,rgba(0,0,0,1)_100%)]
-        "
+        className={cn(
+          "pointer-events-none absolute inset-0",
+          // LIGHT
+          "bg-[radial-gradient(55%_45%_at_50%_70%,rgba(180,30,45,0.18),rgba(255,255,255,0)_60%)]",
+          // DARK
+          "dark:bg-[radial-gradient(60%_45%_at_50%_75%,rgba(120,20,30,0.55),rgba(20,0,0,0.88)_70%,rgba(0,0,0,1)_100%)]",
+        )}
       />
 
-      <div className="relative z-10 max-w-container mx-auto flex flex-col gap-12 pt-16 sm:gap-24">
+      <div className="relative z-10 mx-auto flex max-w-container flex-col gap-12 pt-16 sm:gap-24">
         <div className="flex flex-col items-center gap-6 text-center sm:gap-12">
           {badge !== false && badge}
 
-          {/* DX Gotha + silver gradient */}
           <h1
             className={cn(
               dxGotha.className,
-              "animate-appear relative z-10 inline-block text-balance",
-              "text-4xl sm:text-6xl md:text-8xl leading-tight",
-              "bg-gradient-to-b from-zinc-100 via-zinc-300 to-zinc-500",
+              "animate-appear relative z-10 inline-block text-balance leading-tight",
+              "text-4xl sm:text-6xl md:text-8xl",
+              // Light vs Dark title sheen
+              "bg-gradient-to-b from-zinc-900 via-zinc-700 to-zinc-500 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-500",
               "bg-clip-text text-transparent",
-              "drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]",
+              "drop-shadow-[0_2px_12px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]",
             )}
           >
             {title}
           </h1>
 
-          <p className="text-md animate-appear text-muted-foreground relative z-10 max-w-[740px] font-medium text-balance opacity-0 delay-100 sm:text-xl">
+          <p className="text-md animate-appear relative z-10 max-w-[740px] text-balance font-medium text-muted-foreground opacity-0 delay-100 sm:text-xl">
             {description}
           </p>
 
@@ -116,17 +119,15 @@ export default function Hero({
           {mockup !== false && (
             <div className="relative w-full pt-12">
               <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
-                <Mockup type="responsive" className="bg-background/90 w-full rounded-xl border-0">
+                <Mockup type="responsive" className="w-full rounded-xl border-0 bg-background/90">
                   {mockup}
                 </Mockup>
               </MockupFrame>
 
-              {/* ✅ FIX: recolor Glow to deep red + push behind so it doesn't overwrite your gradient */}
+              {/* Glow: keep it subtle in LIGHT, stronger in DARK */}
               <Glow
                 variant="top"
-                brand="120 20 30"
-                brandForeground="255 255 255"
-                className="animate-appear-zoom opacity-0 delay-1000 -z-10 opacity-40"
+                className="pointer-events-none -z-10 animate-appear-zoom opacity-0 delay-1000 opacity-20 dark:opacity-50"
               />
             </div>
           )}

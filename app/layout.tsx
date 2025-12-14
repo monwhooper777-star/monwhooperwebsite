@@ -3,7 +3,7 @@ import "@/app/globals.css"
 import type { Metadata } from "next"
 
 import { ThemeProvider } from "@/components/contexts/theme-provider"
-import { dxGotha, inter } from "@/lib/fonts"
+import { inter } from "@/lib/fonts"
 import { siteConfig } from "@/config/site"
 
 export const metadata: Metadata = {
@@ -11,10 +11,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-
-  // MUST be absolute (this is what was breaking your Vercel build)
   metadataBase: new URL(siteConfig.url),
-
   description: siteConfig.description,
   keywords: [
     "MWSD",
@@ -27,7 +24,6 @@ export const metadata: Metadata = {
     "Tailwind CSS",
     "Radix UI",
   ],
-
   authors: [
     {
       name: "MWSD",
@@ -35,7 +31,6 @@ export const metadata: Metadata = {
     },
   ],
   creator: "MWSD",
-
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -52,7 +47,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
@@ -60,7 +54,6 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
     creator: "@MonWhooperA1776",
   },
-
   icons: {
     icon: "/favicon.svg",
     apple: "/apple-touch-icon.png",
@@ -73,11 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      style={{ colorScheme: "dark" }}
-      className={`dark ${dxGotha.variable}`}
-    >
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
