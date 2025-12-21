@@ -33,7 +33,11 @@ export default function Hero({
   title = "Monwhooper1776 - Stay Dangerous",
   description = "Official Website for Monwhooper",
   mockup = (
-    <img src="/heroimage.png" alt="Red cursor dashboard" className="h-auto w-full object-contain" />
+    <img
+      src="/heroimage.png"
+      alt="Red cursor dashboard"
+      className="h-auto w-full object-contain"
+    />
   ),
   badge = (
     <Badge variant="outline" className="animate-appear">
@@ -90,7 +94,9 @@ export default function Hero({
 
           {/* Subtitle + Verified avatar */}
           <div className="animate-appear flex items-center justify-center gap-3 opacity-0 delay-100">
-            <span className="text-md font-medium text-muted-foreground sm:text-xl">{description}</span>
+            <span className="text-md font-medium text-muted-foreground sm:text-xl">
+              {description}
+            </span>
 
             <img
               src="/verified.png"
@@ -102,45 +108,40 @@ export default function Hero({
           {/* CTA Buttons */}
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear flex justify-center gap-4 opacity-0 delay-300">
-              {buttons.map((button, index) => {
-                const isBookCall =
-                  button.text.toLowerCase().replace(/\s+/g, "") === "bookacall"
-
-                if (isBookCall) {
-                  return (
-                    <ShinyButton key={index} className="h-11 px-8 text-sm">
-                      <a href={button.href} className="inline-flex items-center">
-                        {button.icon}
-                        {button.text}
-                        {button.iconRight}
-                      </a>
-                    </ShinyButton>
-                  )
-                }
-
-                return (
-                  <Button key={index} variant={button.variant || "default"} size="lg" asChild>
-                    <a href={button.href}>
-                      {button.icon}
-                      {button.text}
-                      {button.iconRight}
-                    </a>
-                  </Button>
-                )
-              })}
+              {buttons.map((button, index) => (
+                <Button
+                  key={index}
+                  variant={button.variant || "default"}
+                  size="lg"
+                  asChild
+                >
+                  <a href={button.href}>
+                    {button.icon}
+                    {button.text}
+                    {button.iconRight}
+                  </a>
+                </Button>
+              ))}
             </div>
           )}
 
           {/* Supporting philosophy line */}
           <p className="animate-appear text-sm font-medium text-muted-foreground opacity-0 delay-500">
-            For those seeking to upgrade their health &amp; mind, a profound way in which you can do this
-            you will discover is via the right quality of water.
+            For those seeking to upgrade their health &amp; mind, a profound way
+            in which you can do this you will discover is via the right quality
+            of water.
           </p>
 
           {mockup !== false && (
             <div className="relative w-full pt-12">
-              <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
-                <Mockup type="responsive" className="w-full rounded-xl border-0 bg-background/90">
+              <MockupFrame
+                className="animate-appear opacity-0 delay-700"
+                size="small"
+              >
+                <Mockup
+                  type="responsive"
+                  className="w-full rounded-xl border-0 bg-background/90"
+                >
                   {mockup}
                 </Mockup>
               </MockupFrame>
