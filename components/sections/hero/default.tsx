@@ -105,6 +105,7 @@ export default function Hero({
             />
           </div>
 
+          {/* CTA Buttons */}
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button, index) => (
@@ -123,6 +124,11 @@ export default function Hero({
               ))}
             </div>
           )}
+
+          {/* Supporting philosophy line */}
+          <p className="animate-appear text-sm font-medium text-muted-foreground opacity-0 delay-500">
+            For those seeking to upgrade their health &amp; mind
+          </p>
 
           {mockup !== false && (
             <div className="relative w-full pt-12">
