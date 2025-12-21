@@ -56,6 +56,7 @@ export default function Navigation({
       content: "components",
     },
     {
+      // ✅ Desktop nav anchor link to FAQ/Q&A section
       title: "Q&A",
       isLink: true,
       href: "#qa",
@@ -71,8 +72,7 @@ export default function Navigation({
     {
       title: "Hover Card",
       href: "/docs/primitives/hover-card",
-      description:
-        "For sighted users to preview content available behind a link.",
+      description: "For sighted users to preview content available behind a link.",
     },
     {
       title: "Progress",
@@ -98,27 +98,31 @@ export default function Navigation({
         "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },
   ],
+  // Keep logo as-is (your navbar uses BrandLogo elsewhere; this is for the dropdown panel)
   logo = <LaunchUI />,
-  logoTitle = "Launch UI",
+  // ✅ Updated brand copy for the Getting started dropdown panel
+  logoTitle = "Stay Dangerous",
   logoDescription =
-    "Landing page template built with React, Shadcn/ui and Tailwind that you can copy/paste into your project.",
+    "Monwhooper1776 - Stay Dangerous is a personal brand owned by Kenneth Castaneda.",
+  // Keep href stable (you can point this anywhere you want later)
   logoHref = siteConfig.url,
+  // ✅ Updated right-column items
   introItems = [
     {
       title: "Introduction",
       href: siteConfig.url,
+      description: "Philosophy & lore behind the name",
+    },
+    {
+      title: "From Allopathy to Holistic",
+      href: siteConfig.url,
+      description: "Learn about the Healing Web & Kangen Water®",
+    },
+    {
+      title: "WakeWaterCo",
+      href: siteConfig.url,
       description:
-        "Re-usable components built using Radix UI and Tailwind CSS.",
-    },
-    {
-      title: "Installation",
-      href: siteConfig.url,
-      description: "How to install dependencies and structure your app.",
-    },
-    {
-      title: "Typography",
-      href: siteConfig.url,
-      description: "Styles for headings, paragraphs, lists...etc",
+        "Learn about a community of WakeWaterCo — a conscious community with a shared purpose of awakening the world to new insights pertaining to water",
     },
   ],
 }: NavigationProps) {
@@ -128,11 +132,13 @@ export default function Navigation({
         {menuItems.map((item, index) => (
           <NavigationMenuItem key={index}>
             {item.isLink ? (
-              <NavigationMenuLink
-                className={navigationMenuTriggerStyle()}
-                asChild
-              >
-                <Link href={item.href || ""}>{item.title}</Link>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()} asChild>
+                {/* NOTE: For hash links, use <a> to ensure native anchor scrolling */}
+                {item.href?.startsWith("#") ? (
+                  <a href={item.href}>{item.title}</a>
+                ) : (
+                  <Link href={item.href || ""}>{item.title}</Link>
+                )}
               </NavigationMenuLink>
             ) : (
               <>
