@@ -7,68 +7,73 @@ import {
   RocketIcon,
   ScanFaceIcon,
   SquarePenIcon,
-} from "lucide-react";
-import { ReactNode } from "react";
+} from "lucide-react"
+import { ReactNode } from "react"
 
-import { Item, ItemDescription,ItemIcon, ItemTitle } from "../../ui/item";
-import { Section } from "../../ui/section";
+import { Item, ItemDescription, ItemIcon, ItemTitle } from "../../ui/item"
+import { Section } from "../../ui/section"
 
 interface ItemProps {
-  title: string;
-  description: string;
-  icon: ReactNode;
+  title: string
+  description: string
+  icon: ReactNode
 }
 
 interface ItemsProps {
-  title?: string;
-  items?: ItemProps[] | false;
-  className?: string;
+  title?: string
+  items?: ItemProps[] | false
+  className?: string
 }
 
 export default function Items({
-  title = "Everything you need. Nothing you don't.",
+  title = "Electrolytically Reduced Hydrogen-Rich + Deuterium-Depleted Water",
   items = [
     {
-      title: "Accessibility first",
-      description: "Fully WCAG 2.0 compliant, made with best a11y practices",
+      title: "Molecular hydrogen (H₂)",
+      description:
+        "Studied for antioxidant and anti-inflammatory signaling support in humans and athletes (evidence varies by study).",
       icon: <ScanFaceIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Responsive design",
-      description: "Looks and works great on any device and screen size",
+      title: "Oxidative stress support",
+      description:
+        "H₂ has been studied for selective reduction of certain reactive species and related oxidative stress markers.",
       icon: <MonitorSmartphoneIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Light and dark mode",
+      title: "Recovery & performance",
       description:
-        "Seamless switching between color schemes, 6 themes included",
+        "Some trials report improved perceived fatigue or recovery markers after exercise; results are mixed across populations.",
       icon: <EclipseIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Easy to customize",
-      description: "Flexible options to match your product or brand",
+      title: "Metabolic markers (research area)",
+      description:
+        "Hydrogen-rich water has been investigated in small studies for glucose/lipid and metabolic syndrome-related markers.",
       icon: <BlocksIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Top-level performance",
-      description: "Made for lightning-fast load times and smooth interactions",
+      title: "Deuterium-depletion concept",
+      description:
+        "Deuterium-depleted water (DDW) is being studied in biology/medicine; strong clinical conclusions are still limited.",
       icon: <FastForwardIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Production ready",
-      description: "Thoroughly tested and launch-prepared",
+      title: "Hydration-first, always",
+      description:
+        "Regardless of type, consistent hydration is foundational—focus on habit, taste preference, and what you’ll actually drink daily.",
       icon: <RocketIcon className="size-5 stroke-1" />,
     },
     {
-      title: "Made for localisation",
+      title: "Minerals & balance",
       description:
-        "Easy to implement support for multiple languages and regions",
+        "If using filtered/processed water, consider mineral balance and overall diet (electrolytes come from food too).",
       icon: <LanguagesIcon className="size-5 stroke-1" />,
     },
     {
-      title: "CMS friendly",
+      title: "Not a medical claim",
       description:
-        "Built to work with your any headless content management system",
+        "This is educational content—not medical advice. If you have a condition or take meds, check with a clinician.",
       icon: <SquarePenIcon className="size-5 stroke-1" />,
     },
   ],
@@ -95,5 +100,5 @@ export default function Items({
         )}
       </div>
     </Section>
-  );
+  )
 }
