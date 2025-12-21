@@ -127,7 +127,7 @@ export default function Hero({
 
           {/* Supporting philosophy line */}
           <p className="animate-appear text-sm font-medium text-muted-foreground opacity-0 delay-500">
-            For those seeking to upgrade their health &amp; mind
+            For those seeking to upgrade their health &amp; mind, a profound way in which you can do this you will discover is via the right quality of water.
           </p>
 
           {mockup !== false && (
