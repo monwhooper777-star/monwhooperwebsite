@@ -65,7 +65,9 @@ export default function Hero({
   className,
 }: HeroProps) {
   return (
-    <Section className={cn("relative overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}>
+    <Section
+      className={cn("relative overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}
+    >
       {/* Theme-aware backdrop:
           - Light: softer red haze on a light background
           - Dark: deeper red glow into black */}
@@ -89,8 +91,8 @@ export default function Hero({
               dxGotha.className,
               "animate-appear relative z-10 inline-block text-balance leading-tight",
               "text-4xl sm:text-6xl md:text-8xl",
-              // Light vs Dark title sheen
-              "bg-gradient-to-b from-zinc-900 via-zinc-700 to-zinc-500 dark:from-zinc-100 dark:via-zinc-300 dark:to-zinc-500",
+              // Token-driven title sheen (works for light/dark/red themes)
+              "bg-gradient-to-b from-foreground via-foreground/70 to-muted-foreground",
               "bg-clip-text text-transparent",
               "drop-shadow-[0_2px_12px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]",
             )}
@@ -105,7 +107,12 @@ export default function Hero({
           {buttons !== false && buttons.length > 0 && (
             <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button, index) => (
-                <Button key={index} variant={button.variant || "default"} size="lg" asChild>
+                <Button
+                  key={index}
+                  variant={button.variant || "default"}
+                  size="lg"
+                  asChild
+                >
                   <a href={button.href}>
                     {button.icon}
                     {button.text}
@@ -119,7 +126,10 @@ export default function Hero({
           {mockup !== false && (
             <div className="relative w-full pt-12">
               <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
-                <Mockup type="responsive" className="w-full rounded-xl border-0 bg-background/90">
+                <Mockup
+                  type="responsive"
+                  className="w-full rounded-xl border-0 bg-background/90"
+                >
                   {mockup}
                 </Mockup>
               </MockupFrame>
