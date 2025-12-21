@@ -99,25 +99,25 @@ export default function Navigation({
     },
   ],
   logo = <LaunchUI />,
-  logoTitle = "Launch UI",
-  logoDescription = "Landing page template built with React, Shadcn/ui and Tailwind that you can copy/paste into your project.",
+  logoTitle = "Stay Dangerous",
+  logoDescription = "Monwhooper1776 - Stay Dangerous is a personal brand owned by Kenneth Castaneda.",
   logoHref = siteConfig.url,
   introItems = [
     {
       title: "Introduction",
       href: siteConfig.url,
+      description: "Philosophy & lore behind the name",
+    },
+    {
+      title: "From Allopathy to Holistic",
+      href: siteConfig.url,
+      description: "Learn about the Healing Web & Kangen Water®",
+    },
+    {
+      title: "WakeWaterCo",
+      href: siteConfig.url,
       description:
-        "Re-usable components built using Radix UI and Tailwind CSS.",
-    },
-    {
-      title: "Installation",
-      href: siteConfig.url,
-      description: "How to install dependencies and structure your app.",
-    },
-    {
-      title: "Typography",
-      href: siteConfig.url,
-      description: "Styles for headings, paragraphs, lists...etc",
+        "Learn about a community of wakewaterco — a conscious community with a shared purpose of awakening the world to new insights pertaining to water",
     },
   ],
 }: NavigationProps) {
