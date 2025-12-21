@@ -36,7 +36,7 @@ export default function Hero({
   mockup = (
     <img
       src="/heroimage.png"
-      alt="Monwhooper red cursor dashboard"
+      alt="Red cursor dashboard"
       className="h-auto w-full object-contain"
     />
   ),
@@ -65,17 +65,13 @@ export default function Hero({
   className,
 }: HeroProps) {
   return (
-    <Section
-      className={cn("relative overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}
-    >
+    <Section className={cn("relative overflow-hidden pb-0", className)}>
       {/* Theme-aware backdrop */}
       <div
         aria-hidden
         className={cn(
           "pointer-events-none absolute inset-0",
-          // LIGHT
           "bg-[radial-gradient(55%_45%_at_50%_70%,rgba(180,30,45,0.18),rgba(255,255,255,0)_60%)]",
-          // DARK
           "dark:bg-[radial-gradient(60%_45%_at_50%_75%,rgba(120,20,30,0.55),rgba(20,0,0,0.88)_70%,rgba(0,0,0,1)_100%)]",
         )}
       />
@@ -87,7 +83,7 @@ export default function Hero({
           <h1
             className={cn(
               dxGotha.className,
-              "animate-appear relative z-10 inline-block text-balance leading-tight",
+              "animate-appear inline-block text-balance leading-tight",
               "text-4xl sm:text-6xl md:text-8xl",
               "bg-gradient-to-b from-foreground via-foreground/70 to-muted-foreground",
               "bg-clip-text text-transparent",
@@ -97,19 +93,23 @@ export default function Hero({
             {title}
           </h1>
 
-          <p className="text-md animate-appear relative z-10 max-w-[740px] text-balance font-medium text-muted-foreground opacity-0 delay-100 sm:text-xl">
-            {description}
-          </p>
+          {/* Subtitle + Verified avatar */}
+          <div className="animate-appear flex items-center justify-center gap-3 opacity-0 delay-100">
+            <span className="text-md font-medium text-muted-foreground sm:text-xl">
+              {description}
+            </span>
+
+            <img
+              src="/verified.png"
+              alt="Verified — Kenneth Castaneda"
+              className="size-7 pixelated opacity-90"
+            />
+          </div>
 
           {buttons !== false && buttons.length > 0 && (
-            <div className="animate-appear relative z-10 flex justify-center gap-4 opacity-0 delay-300">
+            <div className="animate-appear flex justify-center gap-4 opacity-0 delay-300">
               {buttons.map((button, index) => (
-                <Button
-                  key={index}
-                  variant={button.variant || "default"}
-                  size="lg"
-                  asChild
-                >
+                <Button key={index} variant={button.variant || "default"} size="lg" asChild>
                   <a href={button.href}>
                     {button.icon}
                     {button.text}
@@ -122,14 +122,8 @@ export default function Hero({
 
           {mockup !== false && (
             <div className="relative w-full pt-12">
-              <MockupFrame
-                className="animate-appear opacity-0 delay-700"
-                size="small"
-              >
-                <Mockup
-                  type="responsive"
-                  className="w-full rounded-xl border-0 bg-background/90"
-                >
+              <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
+                <Mockup type="responsive" className="w-full rounded-xl border-0 bg-background/90">
                   {mockup}
                 </Mockup>
               </MockupFrame>
