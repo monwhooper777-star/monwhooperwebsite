@@ -8,7 +8,6 @@ import { dxGotha } from "@/lib/fonts"
 
 import { Badge } from "../../ui/badge"
 import { Button, buttonVariants } from "../../ui/button"
-import { ShinyButton } from "../../ui/shiny-button"
 import Glow from "../../ui/glow"
 import { Mockup, MockupFrame } from "../../ui/mockup"
 import { Section } from "../../ui/section"
