@@ -35,8 +35,8 @@ export default function Hero({
   description = "Official Website for Monwhooper",
   mockup = (
     <img
-      src="/healingweb.png"
-      alt="Healing Web diagram"
+      src="/heroimage.png"
+      alt="Monwhooper red cursor dashboard"
       className="h-auto w-full object-contain"
     />
   ),
@@ -68,9 +68,7 @@ export default function Hero({
     <Section
       className={cn("relative overflow-hidden pb-0 sm:pb-0 md:pb-0", className)}
     >
-      {/* Theme-aware backdrop:
-          - Light: softer red haze on a light background
-          - Dark: deeper red glow into black */}
+      {/* Theme-aware backdrop */}
       <div
         aria-hidden
         className={cn(
@@ -91,7 +89,6 @@ export default function Hero({
               dxGotha.className,
               "animate-appear relative z-10 inline-block text-balance leading-tight",
               "text-4xl sm:text-6xl md:text-8xl",
-              // Token-driven title sheen (works for light/dark/red themes)
               "bg-gradient-to-b from-foreground via-foreground/70 to-muted-foreground",
               "bg-clip-text text-transparent",
               "drop-shadow-[0_2px_12px_rgba(0,0,0,0.10)] dark:drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]",
@@ -125,7 +122,10 @@ export default function Hero({
 
           {mockup !== false && (
             <div className="relative w-full pt-12">
-              <MockupFrame className="animate-appear opacity-0 delay-700" size="small">
+              <MockupFrame
+                className="animate-appear opacity-0 delay-700"
+                size="small"
+              >
                 <Mockup
                   type="responsive"
                   className="w-full rounded-xl border-0 bg-background/90"
@@ -134,7 +134,6 @@ export default function Hero({
                 </Mockup>
               </MockupFrame>
 
-              {/* Glow: keep it subtle in LIGHT, stronger in DARK */}
               <Glow
                 variant="top"
                 className="pointer-events-none -z-10 animate-appear-zoom opacity-0 delay-1000 opacity-20 dark:opacity-50"
