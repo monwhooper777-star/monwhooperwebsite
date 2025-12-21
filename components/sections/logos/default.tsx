@@ -52,11 +52,22 @@ export default function Logos({
           {badge !== false && badge}
           <h2 className="text-md font-semibold sm:text-2xl">{title}</h2>
         </div>
+
         {logos !== false && logos.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-8">
             {logos}
           </div>
         )}
+
+        {/* Attribution */}
+        <a
+          href="https://www.areculateir.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+        >
+          rebranded &amp; designed by Areculateir℠
+        </a>
       </div>
     </Section>
   );
