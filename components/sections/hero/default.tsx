@@ -51,7 +51,7 @@ export default function Hero({
   buttons = [
     {
       href: siteConfig.getStartedUrl || "/",
-      text: "Get Started",
+      text: "Water Trials",
       variant: "default",
     },
     {
