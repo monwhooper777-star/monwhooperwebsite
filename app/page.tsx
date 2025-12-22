@@ -6,18 +6,18 @@ import Items from "../components/sections/items/default";
 import Logos from "../components/sections/logos/default";
 import Navbar from "../components/sections/navbar/default";
 import Pricing from "../components/sections/pricing/default";
-import Stats from "../components/sections/stats/default";
+// ✅ removed: Stats section (not relevant to Monwhooper build)
 import { LayoutLines } from "../components/ui/layout-lines";
 
 export default function Home() {
   return (
-    <main className="bg-background text-foreground min-h-screen w-full">
+    <main className="min-h-screen w-full bg-background text-foreground">
       <LayoutLines />
       <Navbar />
       <Hero />
       <Logos />
       <Items />
-      <Stats />
+      {/* ✅ removed: <Stats /> */}
       <Pricing />
       <FAQ />
       <CTA />
