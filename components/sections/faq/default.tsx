@@ -1,146 +1,158 @@
-import Link from "next/link";
-import { ReactNode } from "react";
+import Link from "next/link"
+import { ReactNode } from "react"
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site"
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../../ui/accordion";
-import { Section } from "../../ui/section";
+} from "../../ui/accordion"
+import { Section } from "../../ui/section"
 
 interface FAQItemProps {
-  question: string;
-  answer: ReactNode;
-  value?: string;
+  question: string
+  answer: ReactNode
+  value?: string
 }
 
 interface FAQProps {
-  title?: string;
-  items?: FAQItemProps[] | false;
-  className?: string;
+  title?: string
+  items?: FAQItemProps[] | false
+  className?: string
 }
 
 export default function FAQ({
-  title = "Questions and Answers",
+  title = "Questions & Evidence-Based Answers",
   items = [
     {
       question:
-        "Why building a great landing page is critical for your business?",
+        "Is skepticism around Kangen Water® and water ionizers reasonable?",
       answer: (
         <>
           <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            In today&apos;s AI-driven world, standing out is harder than ever.
-            While anyone can build a product, a professional landing page makes
-            the difference between success and failure.
+            Yes — healthy skepticism is both reasonable and encouraged. Claims
+            around wellness products should always be examined critically and
+            grounded in physics, chemistry, and peer-reviewed research rather
+            than marketing language.
           </p>
           <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            Launch UI helps you ship faster without compromising on quality.
+            This site does not ask you to “believe” anything. Instead, it focuses
+            on explaining what electrolyzed water is, how hydrogen enrichment
+            occurs as an electrochemical fact, and what the scientific
+            literature currently supports — and what it does not.
           </p>
         </>
       ),
     },
     {
-      question: "Why use Launch UI instead of a no-code tool?",
+      question: "How does a water ionizer actually work?",
       answer: (
         <>
-          <p className="text-muted-foreground mb-4 max-w-[600px]">
-            No-code tools lock you into their ecosystem with recurring fees and
-            limited control. They often come with performance issues and make it
-            difficult to integrate with your product.
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            Water ionizers operate using electrolysis — a well-established
+            electrochemical process. When an electrical current passes through
+            water via platinum-coated titanium plates, the water separates into
+            alkaline (reduced) and acidic (oxidized) fractions.
           </p>
-          <p className="text-muted-foreground mb-4 max-w-[600px]">
-            You can&apos;t even change your hosting provider and basic things
-            like web analytics come as extra costs and paid add-ons.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[600px]">
-            What might seem like a convenient solution today could paint you
-            into a corner tomorrow, limiting your ability to scale and adapt.
-            Launch UI gives you full control of your code while maintaining
-            professional quality.
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            During this process, molecular hydrogen (H₂) gas is generated and
+            dissolved into the reduced water. Hydrogen enrichment is not a
+            theory — it is a measurable outcome of electrolysis governed by
+            known physical laws.
           </p>
         </>
       ),
     },
     {
       question:
-        "How Launch UI is different from other components libraries and templates?",
+        "What is hydrogen-rich water, and why is it studied scientifically?",
       answer: (
         <>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Launch UI stands out with premium design quality and delightful
-            touches of custom animations and illustrations.
-          </p>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            All components are carefully crafted to help position your product
-            as a professional tool, avoiding the generic template look.
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            Hydrogen-rich water refers to water that contains dissolved
+            molecular hydrogen (H₂). Molecular hydrogen is biologically neutral,
+            extremely small, and capable of diffusing rapidly through tissues.
           </p>
           <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
-            Unlike many libraries that rely on outdated CSS practices and old
-            dependencies, Launch UI is built with modern technologies and best
-            practices in mind.
+            Since 2007, hydrogen has been studied in peer-reviewed biomedical
+            research for its selective antioxidant behavior and signaling
+            effects. Importantly, research focuses on hydrogen itself — not on
+            brands, machines, or marketing claims.
           </p>
         </>
       ),
     },
     {
-      question: 'Why exactly does it mean that "The code is yours"?',
+      question:
+        "Are there scientific studies supporting molecular hydrogen research?",
       answer: (
         <>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            The basic version of Launch UI is open-source and free forever,
-            under a do-whatever-you-want license.
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            Yes. Molecular hydrogen has been studied in hundreds of peer-reviewed
+            publications across physiology, neurology, inflammation, metabolic
+            health, and oxidative stress research.
           </p>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            The pro version that contains more components and options is a
-            one-time purchase that gives you lifetime access to all current and
-            future content. Use it for unlimited personal and commercial
-            projects - no recurring fees or restrictions.
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            For those who want primary sources rather than summaries, two
+            widely cited academic references include:
           </p>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            For complete details about licensing and usage rights, check out{" "}
-            <Link href="/pricing" className="text-foreground underline">
-              the pricing page
-            </Link>
-            .
+          <ul className="text-muted-foreground mb-4 max-w-[640px] list-disc pl-6">
+            <li>
+              <em>Molecular Hydrogen in Health and Disease</em> (Springer, 2024)
+            </li>
+            <li>
+              <em>Molecular Hydrogen for Medicine</em> by Yuh Fukai (Springer,
+              2020)
+            </li>
+          </ul>
+          <p className="text-muted-foreground max-w-[640px] text-balance">
+            These texts compile laboratory, animal, and early clinical research
+            without overstating conclusions.
           </p>
         </>
       ),
     },
     {
-      question: "Are Figma files included?",
+      question:
+        "Does this site claim that hydrogen water treats or cures diseases?",
       answer: (
-        <p className="text-muted-foreground mb-4 max-w-[580px]">
-          Yes! The complete Launch UI template is available for free on the{" "}
-          <Link
-            href="https://www.figma.com/community/file/1420131743903900629/launch-ui-landing-page-components-ui-kit"
-            className="text-foreground underline"
-          >
-            Figma community
-          </Link>
-          .
+        <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+          No. This site does not make medical claims, diagnoses, or promises of
+          treatment or cure. Research into molecular hydrogen is ongoing, and
+          much of it remains exploratory. Any health decisions should be made
+          in consultation with qualified medical professionals.
         </p>
       ),
     },
     {
-      question: "Can I get a discount?",
+      question:
+        "What is Kenneth Castaneda’s role with Kangen Water®?",
       answer: (
         <>
-          <p className="text-muted-foreground mb-4 max-w-[580px]">
-            Actually, yes! I&apos;m always acively looking for beta testers of
-            new features. If you are interested in exchanging feedback for a
-            discount, please contact me via{" "}
-            <a
-              href={siteConfig.links.email}
-              className="underline underline-offset-2"
-            >
-              email
-            </a>
-            .
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            Kenneth Castaneda is an independent distributor of Enagic®
+            (Kangen Water®) products. He is not a medical professional, researcher,
+            or representative of the scientific institutions publishing hydrogen
+            research.
+          </p>
+          <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+            His role is to provide access to certified electrolysis systems and
+            educational resources so individuals can make informed decisions
+            based on evidence, not hype.
           </p>
         </>
+      ),
+    },
+    {
+      question: "Where can I learn more or examine the research myself?",
+      answer: (
+        <p className="text-muted-foreground mb-4 max-w-[640px] text-balance">
+          Readers are encouraged to consult peer-reviewed journals, academic
+          textbooks, and independent reviews. This site favors transparency and
+          education over persuasion.
+        </p>
       ),
     },
   ],
@@ -167,5 +179,5 @@ export default function FAQ({
         )}
       </div>
     </Section>
-  );
+  )
 }
