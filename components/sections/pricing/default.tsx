@@ -1,80 +1,117 @@
-import { User, Users } from "lucide-react";
+import { CreditCard, Calendar, ShieldCheck } from "lucide-react"
 
-import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-import { PricingColumn, PricingColumnProps } from "../../ui/pricing-column";
-import { Section } from "../../ui/section";
+import { PricingColumn, PricingColumnProps } from "../../ui/pricing-column"
+import { Section } from "../../ui/section"
+
+/**
+ * Update these values to match the exact US distributor payment options for Leveluk K8.
+ * Keep them factual and consistent with whatever the distributor presents.
+ */
+const K8_PRICING = {
+  productName: "Leveluk K8",
+  currencySymbol: "$",
+  // If you don't want to show a specific cash price, set cashPrice to null and adjust below.
+  cashPrice: null as number | null,
+
+  // Monthly plan (example placeholders — replace with the real offer)
+  monthly: {
+    termMonths: 0, // e.g. 24, 36, 48
+    payment: null as number | null, // e.g. 199
+    aprText: "Subject to approval", // keep safe unless you have exact APR
+  },
+
+  // Down payment option (optional)
+  downPayment: {
+    enabled: false,
+    amount: null as number | null,
+    notes: "Varies by program",
+  },
+}
 
 interface PricingProps {
-  title?: string | false;
-  description?: string | false;
-  plans?: PricingColumnProps[] | false;
-  className?: string;
+  title?: string | false
+  description?: string | false
+  plans?: PricingColumnProps[] | false
+  className?: string
 }
 
 export default function Pricing({
-  title = "Build your dream landing page, today.",
-  description = "Get lifetime access to all the components. No recurring fees. Just simple, transparent pricing.",
+  title = "Payment options for the Leveluk K8",
+  description =
+    "Choose the option that fits your budget. Payment plans vary by distributor program and are subject to approval.",
   plans = [
     {
-      name: "Free",
-      description: "For everyone starting out on a website for their big idea",
-      price: 0,
-      priceNote: "Free and open-source forever.",
-      cta: {
-        variant: "glow",
-        label: "Get started for free",
-        href: "/docs/getting-started/introduction",
-      },
-      features: [
-        "1 website template",
-        "9 blocks and sections",
-        "4 custom animations",
-      ],
-      variant: "default",
-      className: "hidden lg:flex",
-    },
-    {
-      name: "Pro",
-      icon: <User className="size-4" />,
-      description: "For early-stage founders, solopreneurs and indie devs",
-      price: 149,
-      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      name: "Pay in Full",
+      icon: <CreditCard className="size-4" />,
+      description:
+        "One-time purchase for the Leveluk K8 through an independent distributor.",
+      // If cashPrice is unknown, we avoid showing a fake number and use a placeholder string via priceNote.
+      price: K8_PRICING.cashPrice ?? 0,
+      priceNote:
+        K8_PRICING.cashPrice === null
+          ? "Request current pricing"
+          : `One-time payment`,
       cta: {
         variant: "default",
-        label: "Get all-access",
-        href: siteConfig.pricing.pro,
+        label: "Request current price",
+        href: "/#contact",
       },
       features: [
-        `${siteConfig.stats.templates} templates`,
-        `${siteConfig.stats.sections} blocks and sections`,
-        `${siteConfig.stats.illustrations} illustrations`,
-        `${siteConfig.stats.animations} custom animations`,
+        "Best for buyers who prefer a one-time payment",
+        "No financing application required",
+        "Includes standard manufacturer warranty (details provided on request)",
       ],
       variant: "glow-brand",
     },
     {
-      name: "Pro Team",
-      icon: <Users className="size-4" />,
-      description: "For teams and agencies working on cool products together",
-      price: 749,
-      priceNote: "Lifetime access. Free updates. No recurring fees.",
+      name: "Monthly Plan",
+      icon: <Calendar className="size-4" />,
+      description:
+        "Spread the cost over time with a monthly payment plan (subject to approval).",
+      price: K8_PRICING.monthly.payment ?? 0,
+      priceNote:
+        K8_PRICING.monthly.payment === null || K8_PRICING.monthly.termMonths === 0
+          ? "Request current monthly options"
+          : `${K8_PRICING.currencySymbol}${K8_PRICING.monthly.payment}/mo · ${K8_PRICING.monthly.termMonths} months · ${K8_PRICING.monthly.aprText}`,
       cta: {
-        variant: "default",
-        label: "Get all-access for your team",
-        href: siteConfig.pricing.team,
+        variant: "glow",
+        label: "See monthly options",
+        href: "/#contact",
       },
       features: [
-        "All the templates, components and sections available for your entire team",
+        "Monthly installments",
+        "Term length depends on the available program",
+        "Approval and terms depend on the provider",
+        "No medical or performance claims — this is purely a payment option",
       ],
       variant: "glow",
+    },
+    {
+      name: "Verify & Compare",
+      icon: <ShieldCheck className="size-4" />,
+      description:
+        "Get a clean breakdown: cash price, monthly terms, and what’s included — in writing.",
+      price: 0,
+      priceNote: "No obligation",
+      cta: {
+        variant: "default",
+        label: "Get the breakdown",
+        href: "/#contact",
+      },
+      features: [
+        "Written breakdown of current K8 pricing & payment options",
+        "Clarifies what you’re paying for (device, warranty, shipping as applicable)",
+        "Helps you compare against alternatives confidently",
+      ],
+      variant: "default",
     },
   ],
   className = "",
 }: PricingProps) {
   return (
-    <Section className={cn(className)}>
+    <Section className={cn(className)} id="pricing">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-12">
         {(title || description) && (
           <div className="flex flex-col items-center gap-4 px-4 text-center sm:gap-8">
@@ -84,12 +121,13 @@ export default function Pricing({
               </h2>
             )}
             {description && (
-              <p className="text-md text-muted-foreground max-w-[600px] font-medium sm:text-xl">
+              <p className="text-md text-muted-foreground max-w-[720px] font-medium sm:text-xl">
                 {description}
               </p>
             )}
           </div>
         )}
+
         {plans !== false && plans.length > 0 && (
           <div className="max-w-container mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {plans.map((plan) => (
@@ -108,7 +146,13 @@ export default function Pricing({
             ))}
           </div>
         )}
+
+        <p className="text-muted-foreground px-4 text-center text-xs leading-relaxed max-w-3xl">
+          Payment plans, terms, and availability depend on the financing provider and distributor program and may change.
+          All financing is subject to approval. This section describes purchasing options only and does not make health
+          or medical claims.
+        </p>
       </div>
     </Section>
-  );
+  )
 }
